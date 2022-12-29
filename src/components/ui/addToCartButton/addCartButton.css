@@ -1,0 +1,24 @@
+.btn-block{
+	display: block;
+	width: 100%;
+}
+
+.btn-alcrro{
+	position: relative;
+	border-width: 0;
+}
+
+.fa-cart-shopping{
+	position: absolute;
+	background-color: red;
+	font-size: 15px;
+	padding: 3px;
+	height: 29.1px;
+	width: 35px;
+	line-height: 23px;
+	border-radius: 3px;
+	left: 0;
+	top: 0;
+	border-top-right-radius: 0%;
+	border-bottom-right-radius: 37% 100%;
+}
