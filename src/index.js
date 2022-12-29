@@ -11,7 +11,3 @@ root.render(
     <App />
   </React.StrictMode>
 );
-
-export const Index = () => {
-  return <div>Index</div>;
-};
