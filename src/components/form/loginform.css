@@ -1,0 +1,161 @@
+body{
+	padding-bottom: 20px;
+}
+/* Start Social Divs */
+
+.mt-md{
+	margin-top: 20px;
+}
+
+
+.mt-md{
+	margin-top: 20px;
+}
+
+.btn-social.facebook	 {
+	background: #415a94;
+
+}
+
+.btn-social.google {
+	background: #cf553d;
+
+	
+}
+.btn-social.apple {
+	background: #000;
+
+}
+
+.btn{
+	width: 100%;
+	display: block;
+	position: relative;
+	text-align: center;
+	color: #fff;
+	font-weight: 600;
+	border: 1px solid transparent;
+	border-radius: 21px;
+	padding: 10px;
+}
+
+
+.btn-social.facebook::before {
+	background-image: url('../../assets/images/facebook-f.svg');
+}
+.btn-social.google::before {
+	background-image: url('../../assets/images/google.svg');
+}
+.btn-social.apple::before {
+	background-image: url('../../assets/images/apple.svg');
+}
+
+.btn-social::before {
+	top: 0;
+	bottom: 0;
+	left: 0;
+	width: 38px;
+	content: "";
+	height: 35px;
+	position: absolute;
+	border-right: 1px solid rgba(255,255,255,.2);
+	margin: 5px;
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: 16px;
+	
+}
+
+/* End Social Divs */
+
+/* Start login Form */
+
+.auth-panel {
+	width: 100%;
+	margin: 10px auto 20px;
+	padding: 0 3%;
+	position: relative;
+	background-color: #fff;
+	display: inline-block;
+	border-radius: 5px;
+	box-shadow: 1px 2px 5px #ccc;
+}
+
+.auth-panel-header {
+	margin-top: 25px;
+}
+
+.auth-panel-body {
+	margin-top: 30px;
+	margin-bottom: 30px;
+}
+
+.form-group {
+	position: relative;
+	margin-bottom: 15px;
+}
+
+label {
+	display: block;
+	font-weight: 600;
+	margin-bottom: 10px;
+}
+
+.form-control {
+	width: 100%;
+	height: 40px;
+	display: block;
+	color: #495057;
+	font-size: 13px;
+	background: #fff;
+	border: 1px solid #d5dee6;
+	padding: 6px 35px 6px 10px;
+	border-radius: 21px;
+}
+.text-hr-line {
+	min-height: 1px;
+	position: relative;
+}
+
+.text-hr-line::before {
+	left: 0;
+	top: 23%;
+	right: 0;
+	height: 1px;
+	content: "";
+	position: absolute;
+	background: #e5e5e5;
+}
+
+.text-hr-line>span {
+	padding: 0 10px;
+	background: #fff;
+	position: relative;
+	display: inline-block;
+}
+
+@media screen and (min-width:400px) {
+	.auth-panel{
+		width: 400px;
+		padding-left: 30px;
+		padding-right: 30px;
+	}
+}
+
+
+@media screen and (min-width:500px) {
+	.auth-box{
+		padding-top: 40px;
+	}
+
+	.auth-panel {
+    margin-top: 20px;
+}
+}
+
+.auth-box{
+	padding-top: 10px;
+	padding-bottom: 20px;
+}
+
+/* End login Form */

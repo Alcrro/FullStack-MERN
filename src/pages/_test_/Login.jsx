@@ -15,11 +15,13 @@ const GuestLayout = () => {
 
 const login = () => {
   return (
-    <Routes>
-      <Route path="/" element={<GuestLayout />} />
-      <Route path="/login" element={<LoginG />} />
-      <Route index element={<div>Default Page Content</div>} />
-    </Routes>
+    <>
+      <Routes>
+        {/* <Route path="/" element={<GuestLayout />} /> */}
+        <Route exact path="/login" element={<LoginG />} />
+        <Route index element={<div>Default Page Content</div>} />
+      </Routes>
+    </>
   );
 };
 

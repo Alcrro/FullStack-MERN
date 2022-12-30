@@ -21,7 +21,7 @@ export const LoginThick = () => {
 
 const Navbar = () => {
   return (
-    <nav className="navbar pb-3">
+    <nav className="navbar pb-2 bg-white mb-3">
       <div className="container">
         <div className="navbar-brand-container">
           <a href="/" className="navbar-brand">
@@ -35,8 +35,11 @@ const Navbar = () => {
                 Home
               </a>
             </li>
-
-            <Test />
+            <li className="nav-item">
+              <Link to="/login" className="nav-link active">
+                Login
+              </Link>
+            </li>
           </ul>
         </div>
       </div>
