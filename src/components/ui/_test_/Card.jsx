@@ -1,5 +1,5 @@
-import React from 'react';
-import './Card.css';
+import React from "react";
+import "./Card.css";
 
 const Card = () => {
   return (
@@ -26,23 +26,27 @@ const Card = () => {
                     </div>
                     <div className="quick-filter ph-card">
                       <button>Iphone 13 Pro Max</button>
-                    </div>{' '}
+                    </div>{" "}
                     <div className="quick-filter ph-card">
                       <button>Iphone 13 Pro Max</button>
-                    </div>{' '}
+                    </div>{" "}
                     <div className="quick-filter ph-card">
                       <button>Iphone 13 Pro Max</button>
-                    </div>{' '}
+                    </div>{" "}
                     <div className="quick-filter ph-card">
                       <button>Iphone 13 Pro Max</button>
-                    </div>{' '}
+                    </div>{" "}
                     <div className="quick-filter ph-card">
                       <button>Iphone 13 Pro Max</button>
                     </div>
                   </div>
                 </div>
-                <a href="/" className="ph-left-margin"></a>
-                <a href="/" className="ph-right-margin"></a>
+                <a href="/" className="ph-left-margin">
+                  test
+                </a>
+                <a href="/" className="ph-right-margin">
+                  test
+                </a>
               </div>
             </div>
           </div>

@@ -1,34 +1,86 @@
-*,::after,
-::before{
-	box-sizing: border-box;
-	margin: 0;
-	padding: 0;
+*,
+::after,
+::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-body{
-	overflow-x: hidden;
-	margin: 0;
-    min-height: 100%;
-    font-family: "Open Sans",Helvetica,Arial,sans-serif;
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 1.42857;
-    color: #000;
-    background-color: #f7f7f7;
-    -webkit-text-size-adjust: 100%;
-    -webkit-tap-highlight-color: transparent;
+body {
+  overflow-x: hidden;
+  margin: 0;
+  min-height: 100%;
+  font-family: "Open Sans", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.42857;
+  color: #000;
+  background-color: #f7f7f7;
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
 }
 
-html{
-	font-size: 100%;
+html {
+  font-size: 100%;
 }
 
-li{
-	list-style: none;
+a {
+  text-decoration: none;
+}
+.title-about li {
+  list-style-type: none;
 }
 
-a{
-	text-decoration: none;
-
+.main-container li {
+  list-style-type: upper-roman;
+  font-size: 28px;
 }
 
+.page-section li {
+  list-style: none;
+}
+
+.page-section button {
+  font-size: medium;
+  border: transparent;
+}
+
+.main-structure-folder {
+  display: inline;
+}
+
+.main-structure-subfolder-inner li {
+  list-style: decimal;
+  font-size: 18px;
+}
+
+.assets-subfolder-structure li {
+  list-style: lower-latin;
+}
+
+/* Start Tree vew */
+
+ul,
+#myUl {
+  list-style: none;
+}
+
+.caret {
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+
+.caret::before {
+  content: "\25b6";
+  color: #000;
+  display: inline-block;
+  margin-right: 0.5rem;
+}
+
+.caret-down::before {
+  -ms-transform: rotate(90deg);
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
