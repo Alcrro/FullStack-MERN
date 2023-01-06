@@ -1,5 +1,5 @@
 import React from "react";
-import BreadcrmpTree from "../../components/ui/Breadcrumb";
+import BreadcrmBTree from "../../components/ui/Breadcrumb";
 import Tree from "../../components/ui/Tree/Tree";
 import "../../components/ui/Tree/Tree.css";
 
@@ -9,32 +9,35 @@ const BreadCrumbStructureFolder = [
     label: "src",
     icon: "fa-solid fa-folder",
     documentType: "folder",
+    page: "src",
     children: [
       {
         key: 0 - 1,
         label: "components",
         icon: "fa-solid fa-folder",
         documentType: "folder",
-
+        page: "components",
         children: [
           {
             key: 0 - 1 - 1,
             label: "UI",
             icon: "fa-solid fa-folder",
             documentType: "folder",
+            page: "UI",
             children: [
               {
                 key: 0 - 1 - 1 - 1,
                 label: "Children 1",
                 icon: "fa-solid fa-folder",
                 documentType: "folder",
+                page: "Children 1",
                 children: [
                   {
                     key: 0 - 1 - 1 - 1 - 2,
                     label: "Children 2",
                     icon: "fa-solid fa-file",
                     documentType: "file",
-                    page: "<Avatar />",
+                    page: "Children 2",
                   },
                 ],
               },
@@ -152,20 +155,6 @@ const dataStructureFolder = [
   },
 ];
 
-const TestSmecher = ({ data }) => {
-  return (
-    <>
-      {data.map((itemE) => (
-        <TestMaiSmecher test2={itemE} key={itemE.label} />
-      ))}
-    </>
-  );
-};
-
-const TestMaiSmecher = ({ test2 }) => {
-  return <>{test2.label}</>;
-};
-
 const TreeList = () => {
   return (
     <>
@@ -173,21 +162,20 @@ const TreeList = () => {
         <div className="text-center">
           <h2>Tree Visualization Component</h2>
         </div>
-        <div className="">
-          <ol className="">
-            <BreadcrmpTree data={BreadCrumbStructureFolder} />
-          </ol>
-        </div>
-
-        <div className="test-smecher">
-          <TestSmecher data={BreadCrumbStructureFolder} />
-        </div>
 
         <div className="">
           <div className="">
             <Tree data={dataStructureFolder} />
           </div>
         </div>
+      </div>
+      <div className="text-center">
+        <h2>Breadcrumb</h2>
+      </div>
+      <div className="container">
+        <ol className="">
+          <BreadcrmBTree data={BreadCrumbStructureFolder} />
+        </ol>
       </div>
     </>
   );

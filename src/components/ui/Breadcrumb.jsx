@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 
 import Avatar from "../../assets/images/apple.svg";
 
@@ -38,7 +39,7 @@ const BreadCrumbNode = ({ breadNode }) => {
 
   return (
     <>
-      <a
+      <div
         className="d-inline text-dark"
         role="button"
         onClick={(e) => setChildVisibility((v) => !v)}
@@ -46,8 +47,9 @@ const BreadCrumbNode = ({ breadNode }) => {
         <div className={`d-inline`}>
           <CheckFiles />
         </div>
+
         <div className="d-inline "> / {breadNode.label} </div>
-      </a>
+      </div>
 
       <div className="d-inline">
         {hasChild && childVisible && <BreadcrmpTree data={breadNode.children} />}

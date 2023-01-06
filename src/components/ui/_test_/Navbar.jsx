@@ -1,6 +1,56 @@
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
+const NavbarData = [
+  {
+    id: 0,
+    logo: "ALCRRO",
+  },
+  {
+    id: 0 - 1,
+    menu: "menu",
+    children: [
+      {
+        key: 0 - 1 - 1,
+        label: "Home",
+      },
+      {
+        key: 0 - 1 - 2,
+        label: "About",
+      },
+      {
+        key: 0 - 1 - 3,
+        label: "My Account",
+        children: [
+          {
+            key: 0 - 1 - 3 - 1,
+            label: "Login",
+          },
+          {
+            key: 0 - 1 - 3 - 2,
+            label: "Create account",
+          },
+        ],
+      },
+      {
+        key: 0 - 1 - 4,
+        label: "Favorite",
+        children: [
+          {
+            key: 0 - 1 - 4 - 1,
+            label: "FavProduct",
+          },
+        ],
+      },
+      {
+        key: 0 - 1 - 4,
+        label: "My Cart",
+        children: "myCartProduct",
+      },
+    ],
+  },
+];
+
 const Navbar = (props) => {
   return (
     <nav className="navbar pb-2 bg-white mb-3">
