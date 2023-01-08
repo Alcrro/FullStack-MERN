@@ -1,0 +1,64 @@
+.navbar-popup {
+  display: none;
+}
+.hidden-xs:hover .navbar-popup {
+  display: block;
+}
+.hidden-xs {
+  position: relative;
+}
+.navbar-account-dropdown {
+  position: absolute;
+  height: 80px;
+  background-color: transparent;
+  z-index: 9;
+  top: 35px;
+  left: -55px;
+}
+
+.dropdown-inner {
+  display: block;
+  width: 220px;
+  position: relative;
+  z-index: 9;
+  top: 10px;
+  left: 0px;
+  background-color: white;
+  border-radius: 10px;
+}
+
+.custom-dropdown-body {
+  padding: 5px;
+}
+
+.custom-dropdown-body .fa-user {
+  padding: 5px;
+  font-size: 20px;
+}
+.custom-dropdown-body span {
+  font-size: 12px;
+}
+
+.navbar-account-dropdown .auth-account-dropdown {
+  display: flex;
+  background-color: #f8f8f8;
+  padding: 0;
+  justify-content: space-between;
+}
+.navbar-account-dropdown .auth-account-dropdown li {
+  padding: 3px;
+}
+.navbar-account-dropdown .auth-account-dropdown a {
+  color: black;
+}
+
+@media (max-width: 768px) {
+  .navbar-account-dropdown {
+    position: absolute;
+    height: 80px;
+    background-color: transparent;
+    z-index: 9;
+    top: 60px;
+    left: -55px;
+  }
+}

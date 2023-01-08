@@ -1,7 +1,7 @@
 import React from "react";
-import BreadcrmBTree from "../../components/ui/Breadcrumb";
-import Tree from "../../components/ui/Tree/Tree";
-import "../../components/ui/Tree/Tree.css";
+import BreadcrmBTree from "./ui/Breadcrumb";
+import Tree from "./ui/Tree/Tree";
+import "../assets/styles/Tree.css";
 
 const BreadCrumbStructureFolder = [
   {

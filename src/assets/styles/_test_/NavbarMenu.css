@@ -1,0 +1,98 @@
+.navbar-menu-aux-outer .navbar-aux {
+  background: #0082e6;
+  background: -webkit-linear-gradient(
+    left,
+    #ff1d25 5%,
+    #a0328c 35%,
+    #7040a4 45%,
+    #4359c7 55%,
+    #0082e6 70%
+  );
+  background: linear-gradient(
+    to right,
+    #ff1d25 5%,
+    #a0328c 35%,
+    #7040a4 45%,
+    #4359c7 55%,
+    #0082e6 70%
+  );
+}
+
+/* .navbar-menu-aux-outer {
+  position: relative;
+} */
+.navbar {
+  display: block;
+  position: relative;
+}
+.navbar-aux-content-departments {
+  position: relative;
+  padding: 5px 10px 5px;
+  background-color: white;
+  border-radius: 5px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+  display: block;
+  color: #222;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.navbar-menu-aux-outer .container {
+  display: block;
+  position: relative;
+}
+
+.navbar-menu-aux-outer .navbar-menu-content {
+  display: flex;
+}
+
+.navbar-left {
+  display: block;
+}
+
+.navbar-left li {
+  display: inline-block;
+  padding: 0 5px;
+}
+.navbar-left li a {
+  display: block;
+  padding: 5px;
+  font-size: 14px;
+  color: white;
+}
+.navbar-left li a:hover {
+  display: block;
+  padding: 4px;
+  font-size: 14px;
+  color: white;
+  border: 1px solid white;
+  border-radius: 7px;
+}
+
+.navbar-menu-content .navbar-right {
+  display: inline-block;
+  position: absolute;
+  right: 0;
+}
+
+.navbar-menu-content .navbar-right li {
+  padding: 0 5px;
+}
+.navbar-menu-content .navbar-right li a {
+  display: inline-block;
+  color: white;
+  padding: 5px;
+}
+.container {
+  position: relative;
+}
+
+.white-space {
+  display: block;
+  position: absolute;
+  left: 17px;
+  width: 96px;
+  height: 9px;
+  background-color: white;
+}

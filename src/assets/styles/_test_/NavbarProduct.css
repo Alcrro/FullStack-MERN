@@ -1,0 +1,35 @@
+.navbar-aux-product-menu .megamenu {
+  display: block;
+  position: absolute;
+  height: 200px;
+  background-color: white;
+}
+
+.megamenu-list-container {
+  display: block;
+  position: absolute;
+  background-color: white;
+  width: auto;
+  top: 8px;
+}
+
+.megamenu ul {
+  width: 240px;
+  padding: 0;
+}
+
+.megamenu-list li {
+  display: flex;
+  width: auto;
+  padding: 5px;
+  color: #000;
+}
+.megamenu-list i {
+  padding-right: 10px;
+}
+.megamenu-list li a {
+  color: #000;
+}
+.megamenu-list li a:hover {
+  color: #005eb8;
+}

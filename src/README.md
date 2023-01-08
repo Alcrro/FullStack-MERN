@@ -1,50 +1,66 @@
 #### Setup Structure ####:
 
-###	Create folders in /src:
-		- components,
-		-	assets,
-		- context,
-		-	hooks,
-		-	pages,
-		- layouts
+### Create folders in /src:
+
+    	- components,
+    	-	assets,
+    	- context,
+    	-	hooks,
+    	-	pages,
+    	- layouts
 
 ### Create folders in components, assets,context,hooks,pages,layouts:
-		- _test_
 
+    	- _test_
 
 ### Create folders in components:
-		- form
-		- ui
+
+    	- form
+    	- ui
 
 ### Create folders in assets:
-		- fonts
-		-	images
-		- styles
 
+    	- fonts
+    	-	images
+    	- styles
 
 #### Data Fetching
-		- Where? and How?
 
-		Where? : context.jsx file
+    - Where? and How?
 
-		How? : 
+    Where? : context.jsx file
 
-		import React, {useContext, useEffect} from 'react'
+    How? :
 
-		const AppContext = React.createContext()
+    import React, {useContext, useEffect} from 'react'
 
-		const AppProvider ({children}) =>{
+    const AppContext = React.createContext()
 
-			useEffect(() =>{
-				console.log('Fetch data here)
-			},[])
+    const AppProvider ({children}) =>{
 
-		return (
-			<AppContext.Provider value={{}}>
-			{children}
-			</AppContext.Provider>
-		)
+    	useEffect(() =>{
+    		console.log('Fetch data here)
+    	},[])
 
+    return (
+    	<AppContext.Provider value={{}}>
+    	{children}
+    	</AppContext.Provider>
+    )
+    }
 
-		}
+# Login Structure Folder
 
+```mermaid
+stateDiagram-v2
+    [*] --> App
+    App --> Routes
+    Routes --> Page
+    Routes --> Components
+    Routes --> Assets
+    Page --> _Test_
+    _Test_ --> Login.jsx
+		Components --> Form
+		Assets --> styles
+		styles --> login.css
+```

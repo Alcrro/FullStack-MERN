@@ -1,91 +1,53 @@
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
-
-const NavbarData = [
-  {
-    id: 0,
-    logo: "ALCRRO",
-  },
-  {
-    id: 0 - 1,
-    menu: "menu",
-    children: [
-      {
-        key: 0 - 1 - 1,
-        label: "Home",
-      },
-      {
-        key: 0 - 1 - 2,
-        label: "About",
-      },
-      {
-        key: 0 - 1 - 3,
-        label: "My Account",
-        children: [
-          {
-            key: 0 - 1 - 3 - 1,
-            label: "Login",
-          },
-          {
-            key: 0 - 1 - 3 - 2,
-            label: "Create account",
-          },
-        ],
-      },
-      {
-        key: 0 - 1 - 4,
-        label: "Favorite",
-        children: [
-          {
-            key: 0 - 1 - 4 - 1,
-            label: "FavProduct",
-          },
-        ],
-      },
-      {
-        key: 0 - 1 - 4,
-        label: "My Cart",
-        children: "myCartProduct",
-      },
-    ],
-  },
-];
+import MyAccountHover from "../../_tests_/MyAccountHover";
+import "../../../assets/styles/_test_/Navbar.css";
 
 const Navbar = (props) => {
   return (
-    <nav className="navbar pb-2 bg-white mb-3">
-      <div className="container navbar-container">
-        <div className="navbar-brand-container">
-          <a href="/about" className="navbar-brand">
-            {props.logo}
-          </a>
+    <div className="navbar-container-outer">
+      <nav className="navbar  bg-white p-1">
+        <div className="container navbar-container">
+          <div className="navbar-brand-container">
+            <a href="/" className="navbar-brand">
+              {props.logo}
+            </a>
+          </div>
+          <div className="navbar-expand">
+            <ul className="navbar-nav">
+              <li className="nav-item ">
+                <Link to="/about" className="nav-link active fs-6">
+                  <i className="fa-solid fa-info pe-1"></i>
+                  <span>{props.navbarMenu.about}</span>
+                </Link>
+              </li>
+              <li className="nav-item hidden-xs">
+                <a href="/" className="nav-link active fs-6 ">
+                  <i className="fa-regular fa-user pe-1"></i>
+                  <span>{props.navbarMenu.account}</span>
+                  <i className="fa-solid fa-caret-down ps-1"></i>
+                </a>
+                <MyAccountHover />
+              </li>
+              <li className="nav-item">
+                <a href="/" className="nav-link active fs-6">
+                  <i className="fa-regular fa-heart pe-1"></i>
+                  <span>{props.navbarMenu.favorite}</span>
+                  <i className="fa-solid fa-caret-down ps-1"></i>
+                </a>
+              </li>
+              <li className="nav-item">
+                <a href="/" className="nav-link active fs-6">
+                  <i className="fa-solid fa-cart-shopping pe-1"></i>
+                  <span>{props.navbarMenu.cart}</span>
+                </a>
+              </li>
+            </ul>
+          </div>
         </div>
-        <div className="navbar-expand">
-          <ul className="navbar-nav">
-            <li className="nav-item">
-              <Link to="/about" className="nav-link active">
-                {props.navbarMenu.about}
-              </Link>
-            </li>
-            <li className="nav-item">
-              <a href="/" className="nav-link active">
-                {props.navbarMenu.account}
-              </a>
-            </li>
-            <li className="nav-item">
-              <a href="/" className="nav-link active">
-                {props.navbarMenu.favorite}
-              </a>
-            </li>
-            <li className="nav-item">
-              <a href="/" className="nav-link active">
-                {props.navbarMenu.cart}
-              </a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
+      </nav>
+    </div>
   );
 };
 
@@ -96,6 +58,8 @@ Navbar.defaultProps = {
     account: "My Account",
     favorite: "Favorite",
     cart: "My Cart",
+    login: "Login",
+    register: "register",
   },
 };
 
