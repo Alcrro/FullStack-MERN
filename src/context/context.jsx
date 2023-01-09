@@ -1,9 +1,9 @@
-import React, { useContext, useEffect, useState } from 'react';
-import axios from 'axios';
+import React, { useContext, useEffect, useState } from "react";
+import axios from "axios";
 
 const AppContext = React.createContext();
 
-const allMealsUrl = 'https://www.themealdb.com/api/json/v1/1/search.php?f=a';
+const allMealsUrl = "https://www.themealdb.com/api/json/v1/1/search.php?f=a";
 
 const AppProvider = ({ children }) => {
   const [loading, setLoading] = useState(false);
@@ -23,9 +23,6 @@ const AppProvider = ({ children }) => {
       console.log(e.response);
     }
   };
-  useEffect(() => {
-    fetchMeals(allMealsUrl);
-  }, []);
 
   return <AppContext.Provider value={{ loading, meals }}>{children}</AppContext.Provider>;
 };

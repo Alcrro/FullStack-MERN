@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "../../assets/styles/loginform.css";
-import { GoogleOAuthProvider } from "@react-oauth/google";
+import { googleLogout, GoogleOAuthProvider } from "@react-oauth/google";
 import { GoogleLogin, GoogleLogout } from "@react-oauth/google";
 
 const Login = () => {
@@ -63,8 +63,6 @@ const Login = () => {
                   </button>
                 </form>
               </div>
-              <div>Search</div>
-              <div>{}</div>
             </div>
           </div>
         </div>
