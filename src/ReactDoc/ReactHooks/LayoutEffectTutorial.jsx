@@ -14,7 +14,7 @@ const LayoutEffectTutorial = () => {
 
   return (
     <div>
-      <input ref={inputRef2} value="Pedro" style={{ width: 400, height: 100 }} />
+      <input ref={inputRef2} defaultValue="Pedro" style={{ width: 400, height: 100 }} />
     </div>
   );
 };

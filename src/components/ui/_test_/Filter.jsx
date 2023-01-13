@@ -1,7 +1,7 @@
 import React from "react";
 import "../../../assets/styles/Card.css";
 
-const Card = () => {
+const Filter = () => {
   return (
     <div className="card-container-outer">
       <div className="page-container">
@@ -58,4 +58,4 @@ const Card = () => {
   );
 };
 
-export default Card;
+export default Filter;

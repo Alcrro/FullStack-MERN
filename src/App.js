@@ -3,27 +3,28 @@ import Home from "./pages/_test_/Home";
 import About from "./pages/_test_/About";
 import LoginRoute from "./routes/Login";
 import Footer from "./components/ui/_test_/Footer";
-import RefTutorial from "./ReactDoc/RefTutorial";
-import LayoutEffectTutorial from "./ReactDoc/LayoutEffectTutorial";
-import ReducerTutorial from "./ReactDoc/ReducerTutorial";
-import EffectTutorial from "./ReactDoc/EffectTutorial";
+import ReactDocument from "./pages/_test_/ReactDocument";
+import Shop from "./pages/_test_/shop/shop";
+import { Cart } from "./pages/cart/cart";
+import { ShopContextProvider } from "./context/shop-context";
 
 function App() {
   return (
     <>
-      <Router>
-        <Routes>
-          <Route exact path="/" element={<Home />} />
+      <ShopContextProvider>
+        <Router>
+          <Routes>
+            <Route exact path="/" element={<Home />} />
 
-          <Route exact path="/about" element={<About />} />
-          <Route exact path="/login" element={<LoginRoute />} />
-          <Route exact path="/reftutorial" element={<RefTutorial />} />
-          <Route exact path="/layouteffecttutorial" element={<LayoutEffectTutorial />} />
-          <Route exact path="/reducertutorial" element={<ReducerTutorial />} />
-          <Route exact path="/effecttutorial" element={<EffectTutorial />} />
-        </Routes>
-      </Router>
-      <Footer />
+            <Route exact path="/about" element={<About />} />
+            <Route exact path="/login" element={<LoginRoute />} />
+            <Route path="/" element={<Shop />} />
+            <Route path="/cart" element={<Cart />} />
+            <Route exact path="/reactdocument" element={<ReactDocument />} />
+          </Routes>
+        </Router>
+        <Footer />
+      </ShopContextProvider>
     </>
   );
 }
