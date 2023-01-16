@@ -1,10 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import MyAccountHover from "../../_tests_/MyAccountHover";
 import "../../../assets/styles/_test_/Navbar.css";
+import CartItem from "../../../pages/cart/CartItem";
+import { Cart } from "../../../pages/cart/cart";
 
-const Navbar = (props) => {
+const Navbar = (props, dataP) => {
   return (
     <div className="navbar-container-outer">
       <nav className="navbar  bg-white p-1">
@@ -34,14 +36,17 @@ const Navbar = (props) => {
                 <a href="/" className="nav-link active fs-6">
                   <i className="fa-regular fa-heart pe-1"></i>
                   <span>{props.navbarMenu.favorite}</span>
+
                   <i className="fa-solid fa-caret-down ps-1"></i>
                 </a>
               </li>
               <li className="nav-item">
-                <a href="/" className="nav-link active fs-6">
+                <Link to="/Cart" className="nav-link active fs-6">
                   <i className="fa-solid fa-cart-shopping pe-1"></i>
                   <span>{props.navbarMenu.cart}</span>
-                </a>
+
+                  <i className="fa-solid fa-caret-down ps-1"></i>
+                </Link>
               </li>
             </ul>
           </div>

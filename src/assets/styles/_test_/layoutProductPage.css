@@ -1,0 +1,147 @@
+body {
+  padding: 0;
+  margin: 0;
+}
+
+.navbar-main {
+  background-color: white;
+  min-height: auto;
+}
+
+.navbar-main .container {
+  display: block;
+}
+
+.navbar-inner {
+  padding: 0;
+  margin: 0;
+  margin: 10px 0;
+}
+
+.page-header {
+  background-color: antiquewhite;
+}
+
+.navbar-aux {
+  height: 40px;
+  max-height: 40px;
+  padding: 0;
+  margin: 0;
+  background: #0082e6;
+  background: -webkit-linear-gradient(
+    left,
+    #ff1d25 5%,
+    #a0328c 35%,
+    #7040a4 45%,
+    #4359c7 55%,
+    #0082e6 70%
+  );
+  background: linear-gradient(
+    to right,
+    #ff1d25 5%,
+    #a0328c 35%,
+    #7040a4 45%,
+    #4359c7 55%,
+    #0082e6 70%
+  );
+}
+
+.navbar-aux .container {
+  display: block;
+}
+
+.menu-container {
+  background-color: aqua;
+  height: 1000px;
+  width: 283px;
+  float: left;
+  margin-right: 15px;
+}
+
+.menu-container + .page-container {
+  height: 1000px;
+  width: calc(100% - 302px);
+}
+
+/* .page-container {
+  background-color: aquamarine;
+} */
+
+/* Link-uri utile */
+.page-selection-light .container {
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.page-selection.page-selection-light {
+  background-color: #fff;
+}
+
+.pad-sep-xs {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.collapse-offset.in {
+  margin: 0;
+  border-bottom: none;
+}
+
+.btn-sm {
+  display: inline-block;
+  width: auto;
+  padding: 5px 10px;
+  margin: 2px;
+  font-size: 12px;
+  line-height: 20px;
+  border-radius: 3px;
+  font-weight: 400;
+}
+
+.btn-seo-links {
+  border-radius: 15px;
+  background-color: #e8f7fe;
+  margin-bottom: 10px;
+  color: #215ab4;
+  pointer-events: auto;
+}
+
+.btn-seo-links:hover {
+  border-radius: 15px;
+  background-color: #e8f7fe;
+  margin-bottom: 10px;
+  color: #215ab4;
+  pointer-events: auto;
+}
+
+.listing-panel {
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-left: 0;
+  margin-right: 0;
+  border-radius: 3px;
+  border-width: 1px;
+}
+
+.cart-collection {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.card-item {
+  height: 502px;
+  width: 302px;
+  background-color: red;
+  margin: 2px;
+}
+
+/* @media (min-width: ) {
+} */
+
+@media (min-width: 1530px) {
+  .container {
+    width: 1520px;
+  }
+}

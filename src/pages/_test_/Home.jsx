@@ -9,12 +9,12 @@ import Filter from "../../components/ui/_test_/Filter";
 const Home = () => {
   return (
     <div>
-      <Navbar />
-      <NavbarMenu />
+      {/* <Navbar />
+      <NavbarMenu /> */}
       <div className="container ">
         <Filter />
       </div>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };
