@@ -1,24 +1,26 @@
 import React from "react";
 import "../../../assets/styles/_test_/layoutProductPage.css";
+import { ShopContext } from "../../../context/shop-context";
+import { Cart } from "../../../pages/cart/cart";
+import CartItem from "../../../pages/cart/CartItem";
+import { Shop } from "../../../pages/_test_/shop/shop";
+import SideFilter from "./sideFilter";
 
 const LayoutProductPage = () => {
   return (
     <>
-      <nav className="navbar navbar-main">
-        <div className="container">
-          <div className="navbar-inner">Navbar Main</div>
-        </div>
-      </nav>
-      <nav id="auxiliary" className="navbar navbar-aux">
-        <div className="container">Navbar Aux</div>
-      </nav>
       <div className="main-container-inner">
         <div className="main-container">
           <section className="page-section">
             <div className="container">
               <div className="page-header">Page Header</div>
               <div className="clearfix pad-btm-md">
-                <div className="menu-container"></div>
+                <div className="menu-container">
+                  <div className="sidebar-container sidebar-tree-container">test</div>
+                  <div className="sidebar-container sidebar-filter-container">
+                    <SideFilter />
+                  </div>
+                </div>
                 <div className="page-container">
                   <div className="listing-panel has-floating-listing-panel-footer">
                     <div className="listing-panel-heading">
@@ -28,17 +30,7 @@ const LayoutProductPage = () => {
                     </div>
                   </div>
                   <div className="cart-collection">
-                    <div className="card-item"></div>
-                    <div className="card-item"></div>
-                    <div className="card-item"></div>
-                    <div className="card-item"></div>
-                    <div className="card-item"></div>
-                    <div className="card-item"></div>
-                    <div className="card-item"></div>
-                    <div className="card-item"></div>
-                    <div className="card-item"></div>
-                    <div className="card-item"></div>
-                    <div className="card-item"></div>
+                    <Shop />
                   </div>
                 </div>
               </div>

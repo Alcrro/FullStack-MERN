@@ -1,0 +1,65 @@
+.container-side-filter-outer {
+  display: block;
+}
+
+.side-filter-inner {
+  width: 100%;
+}
+.filter-head {
+  display: block;
+
+  color: black;
+  padding: 10px 15px;
+}
+.filter-head:hover {
+  color: black;
+  padding: 10px 15px;
+}
+
+.filter-body a {
+  display: block;
+}
+
+.filter-body {
+  padding-bottom: 0;
+  margin-bottom: 9px;
+}
+
+.filter-item {
+  color: #222;
+  padding-left: 25px;
+  margin: 6px 0;
+}
+.filter-item:hover {
+  color: #222;
+  padding-left: 25px;
+  margin: 6px 0;
+}
+
+.filter-item::before {
+  top: 0;
+  left: 0;
+  content: "";
+  font-family: eMAGv2;
+  line-height: 14px;
+  font-size: 9px;
+  color: transparent;
+  background-color: #fff;
+  border: 1px solid #bbb;
+  display: inline-block;
+  vertical-align: top;
+  width: 14px;
+  height: 14px;
+  padding: 0;
+  margin: 3px;
+  margin-right: 10px;
+  text-align: center;
+  border-radius: 2px;
+  margin-left: 0;
+}
+
+.filter-default {
+  display: block;
+  background-color: white;
+  margin-top: 0.5rem;
+}

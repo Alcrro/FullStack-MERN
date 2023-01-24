@@ -11,34 +11,62 @@ import Navbar from "./components/ui/_test_/Navbar";
 import NavbarMenu from "./components/ui/_test_/NavbarMenu";
 import SideFilter from "./components/ui/_test_/sideFilter";
 import LayoutProductPage from "./components/ui/_test_/layoutProductPage";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import RegisterForm from "./components/form/RegisterForm";
+import SignInFirebase from "./components/ui/_test_/SignInFirebase";
+import ListPlanets from "./ReactDoc/ReactHooks/Exercitii/ListPlanets";
+import LiveText from "./ReactDoc/ReactHooks/Exercitii/liveText";
+import ToggleButtonEx from "./ReactDoc/ReactHooks/Exercitii/ToggleButtonEx";
+import IndexToDoList from "./ReactDoc/ReactHooks/Exercitii/ToDoList/IndexToDoList";
+import TestTodoList from "./ReactDoc/ReactHooks/Exercitii/ToDoList/testTodoList";
+import Lifecycle from "./ReactDoc/Lifecycle";
+
 function App() {
+  const client = new QueryClient();
   return (
     <>
-      <ShopContextProvider>
-        <Router>
-          {/* <Navbar />
-          <NavbarMenu /> */}
-          <Routes>
-            <Route
-              exact
-              path="/"
-              element={
-                <>
-                  <Home />
-                  <SideFilter />
-                  <Shop />
-                </>
-              }
-            />
+      <QueryClientProvider client={client}>
+        <ShopContextProvider>
+          <Router>
+            <Navbar />
+            <NavbarMenu />
+            <Routes>
+              <Route
+                exact
+                path="/"
+                element={
+                  <>
+                    <Home />
+                    <SideFilter />
+                    <Shop />
+                    <ListPlanets />
+                    <LiveText />
+                    <ToggleButtonEx />
+                  </>
+                }
+              />
 
-            <Route exact path="/about" element={<About />} />
-            <Route exact path="/login" element={<LoginRoute />} />
-            <Route path="/cart" element={<Cart />} />
-            <Route exact path="/reactdocument" element={<ReactDocument />} />
-            <Route exact path="/layoutproductpage" element={<LayoutProductPage />} />
-          </Routes>
-        </Router>
-      </ShopContextProvider>
+              <Route exact path="/about" element={<About />} />
+              <Route exact path="/register" element={<RegisterForm />} />
+              <Route exact path="/login" element={<LoginRoute />} />
+              <Route exact path="/signin" element={<SignInFirebase />} />
+              <Route path="/cart" element={<Cart />} />
+              <Route exact path="/reactdocument" element={<ReactDocument />} />
+              <Route exact path="/layoutproductpage" element={<LayoutProductPage />} />
+              <Route
+                exact
+                path="/todolist"
+                element={
+                  <>
+                    <TestTodoList />
+                    <Lifecycle />
+                  </>
+                }
+              />
+            </Routes>
+          </Router>
+        </ShopContextProvider>
+      </QueryClientProvider>
     </>
   );
 }

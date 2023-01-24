@@ -52,7 +52,7 @@ body {
 
 .menu-container {
   background-color: aqua;
-  height: 1000px;
+  height: 400px;
   width: 283px;
   float: left;
   margin-right: 15px;
@@ -144,4 +144,10 @@ body {
   .container {
     width: 1520px;
   }
+}
+
+.sidebar-filter-container {
+  display: block;
+  position: relative;
+  top: 380px;
 }
