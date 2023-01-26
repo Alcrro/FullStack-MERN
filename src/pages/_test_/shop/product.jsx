@@ -8,36 +8,40 @@ const Gigel = () => {};
 
 const Product = (props) => {
   const { id, itemCategory } = props.data;
-  console.log(props.data);
+  // console.log(props.data);
   const { addToCart, cartItems } = useContext(ShopContext);
   const cartItemAmount = cartItems[id];
   return (
     <div className="card-container m-1 border border-2">
-      {props.itemDescription.map((item, index) => {
-        console.log(item.modelPlacaVideo);
-        return (
-          <div key={index}>
-            <div className="card-img-container">
-              <div className="card-img ">
-                <img src={item.img} alt="" width="200px" height="200px" className="images" />
+      {props.itemDescription &&
+        props.itemDescription.map((item, index) => {
+          return (
+            <div key={index}>
+              <div className="card-img-container">
+                <div className="card-img ">
+                  <img src={item.img} alt="" width="200px" height="200px" className="images" />
+                </div>
+              </div>
+              <div className="description">
+                <p>
+                  <b className="">{`${itemCategory} ${item.brand} ${item.model} ${item.DiagonalaDisplay}-inch, ${item.TehnologiiDisplay}, ${item.tipprocesor} - ${item.nrNucleeProcesor} nuclee CPU si ${item.nrNucleePlacaVideo} nuclee GPU, ${item.CapacitateMemorie}GB, ${item.capacitateStocare}GB ${item.TipStocare}`}</b>
+                </p>
+              </div>
+              0 0.
+              {item.Culoare.map((culoare) => {
+                // console.log(culoare);
+              })}
+              <div className="price-container">
+                <div>$ {item.Pret}</div>
+              </div>
+              <div className="button-container">
+                <button className="addToCardBtn" onClick={() => addToCart(id)}>
+                  Add to Cart {cartItemAmount > 0 && <>({cartItemAmount})</>}
+                </button>
               </div>
             </div>
-            <div className="description">
-              <p>
-                <b className="">{`${itemCategory} ${item.brand} ${item.model} ${item.DiagonalaDisplay}-inch, ${item.TehnologiiDisplay}, ${item.tipprocesor} - ${item.nrNucleeProcesor} nuclee CPU si ${item.nrNucleePlacaVideo} nuclee GPU, ${item.CapacitateMemorie}GB, ${item.capacitateStocare}GB ${item.TipStocare}`}</b>
-              </p>
-            </div>
-            <div className="price-container">
-              <div>$ {"item.Pret"}</div>
-            </div>
-            <div className="button-container">
-              <button className="addToCardBtn" onClick={() => addToCart(id)}>
-                Add to Cart {cartItemAmount > 0 && <>({cartItemAmount})</>}
-              </button>
-            </div>
-          </div>
-        );
-      })}
+          );
+        })}
     </div>
   );
 };

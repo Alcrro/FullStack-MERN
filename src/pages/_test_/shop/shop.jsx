@@ -4,7 +4,7 @@ import { CardData } from "../../../products";
 import Product, { Gigel } from "./product";
 
 export const Shop = () => {
-  console.log(CardData);
+  // console.log(CardData);
   return (
     <div className="container ">
       <div className="shopTitle">

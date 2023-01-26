@@ -51,73 +51,78 @@ const filterData = [
   },
 ];
 
-const getKeys = (data) => {
-  let arr = [];
-  if (data) {
-    Object.keys(CardData).map((key) => {
-      arr = Object.keys(CardData[key].data);
-    });
-  }
-  return arr;
-};
-
-console.log(
-  Object.keys(filterData).map((test, key) => {
-    return test;
-  })
-);
-
-const SideFilter = () => {
+const SideFilter = (props) => {
   const [showDiv, setShowDiv] = useState(CardData);
   const [toggler, setToggler] = useState("");
 
+  const uniqueNames = [];
+
+  const uniqueCardData = CardData.filter((elem) => {
+    const isDuplicate = uniqueNames.includes(elem.brand);
+
+    if (isDuplicate) {
+      uniqueNames.push(elem.itemDescription);
+      return true;
+    }
+    return false;
+  });
+
+  console.log(uniqueCardData);
   const toggle = (id) => {
     setShowDiv(
       CardData.map((item) => {
         if (item.id === id) {
           if (item.isActive) {
-            console.log(item);
+            // console.log(item);
             return (item.isActive = false);
           } else {
-            console.log(item);
+            // console.log(item);
             return (item.isActive = true);
           }
         }
       })
     );
   };
-
   return (
-    <div className=" container-side-filter-outer">
-      <div className="">
-        <div className="side-filter-inner">
-          {Object.keys(filterData[1]).map((test, key) => {
-            return (
-              <div className="filtru-smecher" key={key}>
-                <div className="filter filter-default">
-                  <Link to="#" className="filter-head" onClick={() => toggle(test.id)}>
-                    {test}
-                  </Link>
-                  {test.isActive ? (
-                    <div className="filter-body p-2">
-                      {test.children.map((children, index) => {
+    <>
+      <div className="app"></div>
+      <div className=" container-side-filter-outer">
+        <div className="">
+          <div className="side-filter-inner">
+            {CardData.map((test, key) => {
+              // console.log(key);
+              return (
+                <div className="filtru-smecher" key={key}>
+                  <div className="filter filter-default">
+                    {props.itemDescription &&
+                      props.itemDescription.map((children, index) => {
+                        <Link
+                          to="#"
+                          className="filter-head"
+                          onClick={() => toggle(test.id)}
+                        ></Link>;
+
+                        // console.log(children);
                         return (
-                          <a href="/" className="filter-item" key={index}>
-                            {children.childrenName}
-                          </a>
+                          <div className="filter-body p-2" key={index}>
+                            {Object.keys(children).filter((key) => {
+                              return (
+                                <a href="/" className="filter-item" key={key}>
+                                  {key}
+                                </a>
+                              );
+                            })}
+                          </div>
                         );
                       })}
-                    </div>
-                  ) : (
-                    ""
-                  )}
+                  </div>
                 </div>
-              </div>
-            );
-          })}
+              );
+            })}
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
