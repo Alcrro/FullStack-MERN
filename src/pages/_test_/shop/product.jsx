@@ -28,9 +28,6 @@ const Product = (props) => {
                 </p>
               </div>
               0 0.
-              {item.Culoare.map((culoare) => {
-                // console.log(culoare);
-              })}
               <div className="price-container">
                 <div>$ {item.Pret}</div>
               </div>

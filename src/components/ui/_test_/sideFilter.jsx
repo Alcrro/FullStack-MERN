@@ -2,126 +2,61 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "../../../assets/styles/_test_/sideFilter.css";
 import { CardData } from "../../../products";
-
-const filterData = [
-  {
-    id: 1,
-    filterName: "Tip procesor",
-    isActive: true,
-    children: [
-      {
-        id: 11,
-        childrenName: "Am bani 1",
-      },
-      {
-        id: 12,
-        childrenName: "Am bani 2",
-      },
-    ],
-  },
-  {
-    id: 2,
-    filterName: "Oferte de nerefuzat",
-    isActive: true,
-    children: [
-      {
-        id: 111,
-        childrenName: "Trotinete 1",
-      },
-      {
-        id: 112,
-        childrenName: "Trotinete 2",
-      },
-    ],
-  },
-  {
-    id: 3,
-    filterName: "Cele mai bune ",
-    isActive: true,
-    children: [
-      {
-        id: 111,
-        childrenName: "Trotinete 1",
-      },
-      {
-        id: 112,
-        childrenName: "Trotinete 2",
-      },
-    ],
-  },
-];
+import { ProductContext } from "../../../context/_test_/context-product";
 
 const SideFilter = (props) => {
-  const [showDiv, setShowDiv] = useState(CardData);
-  const [toggler, setToggler] = useState("");
-
-  const uniqueNames = [];
-
-  const uniqueCardData = CardData.filter((elem) => {
-    const isDuplicate = uniqueNames.includes(elem.brand);
-
-    if (isDuplicate) {
-      uniqueNames.push(elem.itemDescription);
-      return true;
-    }
-    return false;
+  const itemsse = CardData.map((item) => {
+    const itemDesc = item.itemDescription.map((itemCat) => {
+      const itemKey = Object.keys(itemCat).filter((key) => {
+        return key;
+      });
+      return itemKey;
+    });
+    return itemDesc;
   });
+  // console.log(itemsse);
+  const test = itemsse.toString((test) => {
+    return test;
+  });
+  // console.log(test);
+  const splites = test.split(",");
+  // console.log(splites);
 
-  console.log(uniqueCardData);
-  const toggle = (id) => {
-    setShowDiv(
-      CardData.map((item) => {
-        if (item.id === id) {
-          if (item.isActive) {
-            // console.log(item);
-            return (item.isActive = false);
-          } else {
-            // console.log(item);
-            return (item.isActive = true);
-          }
-        }
-      })
-    );
-  };
+  const inSfarsitUnique = [...new Set(splites)];
+  // console.log(inSfarsitUnique);
+
   return (
     <>
-      <div className="app"></div>
-      <div className=" container-side-filter-outer">
-        <div className="">
-          <div className="side-filter-inner">
-            {CardData.map((test, key) => {
-              // console.log(key);
-              return (
-                <div className="filtru-smecher" key={key}>
-                  <div className="filter filter-default">
-                    {props.itemDescription &&
-                      props.itemDescription.map((children, index) => {
-                        <Link
-                          to="#"
-                          className="filter-head"
-                          onClick={() => toggle(test.id)}
-                        ></Link>;
-
-                        // console.log(children);
-                        return (
-                          <div className="filter-body p-2" key={index}>
-                            {Object.keys(children).filter((key) => {
-                              return (
-                                <a href="/" className="filter-item" key={key}>
-                                  {key}
-                                </a>
-                              );
-                            })}
-                          </div>
-                        );
-                      })}
-                  </div>
-                </div>
-              );
-            })}
+      <ProductContext.Provider>
+        <div className="app">{}</div>
+        <div className=" container-side-filter-outer">
+          <div className="">
+            <div className="sidebar-container-body">
+              <div className="filter filter-default">
+                {inSfarsitUnique.map((key) => {
+                  return (
+                    <div className="filtru-smecher mb-1" key={key}>
+                      <Link to="#" className="filter-head">
+                        {key}
+                        {test.itemDescription &&
+                          props.itemDescription.map((children, index) => {
+                            return (
+                              <div className="filter-body p-2" key={index}>
+                                <li href="/" className="filter-item fs-6">
+                                  {children[key]}
+                                </li>
+                              </div>
+                            );
+                          })}
+                      </Link>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
           </div>
         </div>
-      </div>
+      </ProductContext.Provider>
     </>
   );
 };

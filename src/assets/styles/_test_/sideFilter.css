@@ -60,6 +60,10 @@
 
 .filter-default {
   display: block;
-  background-color: white;
+
   margin-top: 0.5rem;
+}
+
+.filtru-smecher {
+  background-color: #fff;
 }

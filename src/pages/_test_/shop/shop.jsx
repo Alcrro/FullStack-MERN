@@ -1,5 +1,6 @@
 import React from "react";
 import Navbar from "../../../components/ui/_test_/Navbar";
+import SideFilter from "../../../components/ui/_test_/sideFilter";
 import { CardData } from "../../../products";
 import Product, { Gigel } from "./product";
 

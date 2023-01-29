@@ -20,6 +20,7 @@ import ToggleButtonEx from "./ReactDoc/ReactHooks/Exercitii/ToggleButtonEx";
 import IndexToDoList from "./ReactDoc/ReactHooks/Exercitii/ToDoList/IndexToDoList";
 import TestTodoList from "./ReactDoc/ReactHooks/Exercitii/ToDoList/testTodoList";
 import Lifecycle from "./ReactDoc/Lifecycle";
+import { ProductContext } from "./context/_test_/context-product";
 
 function App() {
   const client = new QueryClient();
