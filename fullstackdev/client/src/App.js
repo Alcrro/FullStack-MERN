@@ -35,7 +35,7 @@ function App() {
   };
   return (
     <div className="App">
-      <h1>Crud App with MERN2</h1>
+      <h1>Crud App with MERN</h1>
 
       <label htmlFor="">Product Name:</label>
       <input
