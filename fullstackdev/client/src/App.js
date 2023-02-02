@@ -1,88 +1,25 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
-import "./App.css";
+import React, { useState } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Home from "./Pages/Home/Home";
+import About from "./Pages/About/About";
+import Login from "./Pages/Auth/Login";
+import Register from "./Pages/Auth/Register";
 
-function App() {
-  const [productBrand, setProductName] = useState("");
-  const [productCount, setProductCount] = useState("");
-  const [newProductBrand, setNewProductBrand] = useState("");
-  const [productList, setProductList] = useState([]);
-
-  useEffect(() => {
-    axios.get("http://localhost:5000/read").then((res) => {
-      setProductList(res.data);
-    });
-  }, [setProductList]);
-
-  const addToList = () => {
-    axios.post("http://localhost:5000/insert", {
-      productBrand,
-      productCount,
-    });
-  };
-
-  const updateProduct = (id) => {
-    axios.put("http://localhost:5000/update", {
-      id: id,
-      newProductBrand: newProductBrand,
-    });
-  };
-
-  const deleteProduct = (id) => {
-    axios.delete(`http://localhost:5000/delete/${id}`).then((res) => {
-      setProductList(res.data);
-    });
-  };
+const App = () => {
   return (
-    <div className="App">
-      <h1>Crud App with MERN</h1>
+    <Router>
+      <a href="/home">Go To Home Page</a>
+      {/* <UserAuthProvider> */}
+      <Routes>
+        <Route exact path="/user/login" element={<Login />}></Route>
+        <Route exact path="/user/register" element={<Register />}></Route>
 
-      <label htmlFor="">Product Name:</label>
-      <input
-        type="text"
-        onChange={(e) => {
-          setProductName(e.target.value);
-        }}
-      />
-      <label htmlFor="">Product Count:</label>
-      <input
-        type="number"
-        onChange={(e) => {
-          setProductCount(e.target.value);
-        }}
-      />
-      <button onClick={addToList}> Add to List</button>
-      <h1>Product List</h1>
-      {productList.map((val, key) => {
-        return (
-          <div key={key}>
-            <div className="container">
-              <div className="productName">Product Name: {val.brand}</div>
-              <div className="productCount">Product Count: {val.count}</div>
-              <div className="controls-container">
-                <input
-                  type="text"
-                  className="newProductName"
-                  placeholder="New Product Name"
-                  onChange={(e) => {
-                    setNewProductBrand(e.target.value);
-                  }}
-                />
-                <div className="buttons-container">
-                  <button className="btn btn-update" onClick={() => updateProduct(val._id)}>
-                    Update
-                  </button>
-                  <button className="btn btn-delete" onClick={() => deleteProduct(val._id)}>
-                    Delete
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        );
-      })}
-    </div>
+        <Route exact path="/about" element={<About />}></Route>
+        <Route exact path="/" element={<Home />}></Route>
+      </Routes>
+      {/* </UserAuthProvider> */}
+    </Router>
   );
-}
+};
 
 export default App;

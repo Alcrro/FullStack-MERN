@@ -1,16 +1,23 @@
 const express = require("express");
 const mongoose = require("mongoose");
-const corse = require("cors");
+const cors = require("cors");
 const server = express();
 
 const ProductModel = require("./models/Products/Products");
+const UserModel = require("./models/User/User");
 
 server.use(express.json());
-server.use(corse());
 
+server.use(cors());
+
+mongoose.set("strictQuery", false);
 mongoose.connect(
   "mongodb+srv://mycula:1Samsung95@cluster0.giv7z.mongodb.net/ProductsDB?retryWrites=true&w=majority"
 );
+
+//Load Routes files
+const authLogin = require("./routes/auth/login");
+const users = require("./routes/user/user");
 
 server.post("/insert", async (req, res, next) => {
   const brand = req.body.productBrand;
@@ -46,11 +53,16 @@ server.put("/update", async (req, res, next) => {
   }
 });
 
-server.delete("/delete/:id", async (req, res, next) => {
-  const id = req.params.id;
-  await ProductModel.findByIdAndRemove(id).exec();
-  res.send("Deleted");
-});
+// server.use("/", async (req, res, next) => {
+//   res.setHeader("Access-Control-Allow-Origin", "*");
+//   res.setHeader("Access-Control-Allow-Methods", "GET, POST,PUT,DELETE");
+//   res.setHeader("Access-Control-Allow-Methods", "Content-type");
+//   await next();
+// });
+
+//Mount routers
+server.use("/api/auth", authLogin);
+server.use("/api", users);
 
 server.listen(5000, () => {
   console.log("Server running on port 5000");
