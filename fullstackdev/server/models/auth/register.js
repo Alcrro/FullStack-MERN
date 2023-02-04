@@ -1,32 +1,51 @@
 const mongoose = require("mongoose");
 const slugify = require("slugify");
 const bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
 2;
 
 const RegisterSchema = new mongoose.Schema({
   name: {
     type: String,
-    required: true,
+    required: [false, "Please add a name"],
   },
+
   email: {
     type: String,
-    unique: true,
-    required: true,
+    required: [true, "Please add an email"],
+    unique: [true, "Email already taken"],
+    match: [
+      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+      "Please add a valid email",
+    ],
   },
-  slug: String,
+  role: {
+    type: String,
+    enum: ["user", "publisher"],
+    default: "user",
+    select: false,
+  },
   password: {
     type: String,
-    required: true,
+    required: [true, "Please add a password"],
+    minlength: 6,
+    select: false,
+  },
+  resetPasswordToken: String,
+  resetPasswordExpire: Date,
+  createdAt: {
+    type: Date,
+    default: Date.now,
   },
 });
 
-//Create bootcamp slug from the name
-//pre run before operation
-// UserSchema.pre("save", function (next) {
-//   console.log("Slugify ran", this.name);
-//   this.slug = slugify(this.name, { lower: true });
-//   next();
-// });
+// Create bootcamp slug from the name
+// pre run before operation
+RegisterSchema.pre("save", function (next) {
+  console.log("Slugify ran", this.name);
+  this.slug = slugify(this.name, { lower: true });
+  next();
+});
 
 //Encrypt password using bcrypt
 RegisterSchema.pre("save", async function (next) {
@@ -37,6 +56,13 @@ RegisterSchema.pre("save", async function (next) {
 //Match  user entered password to hashed password in database
 RegisterSchema.methods.matchPassword = async function (enteredPassword) {
   return await bcrypt.compare(enteredPassword, this.password);
+};
+
+//Sign JWT and return
+RegisterSchema.methods.getSignedJwtToken = function () {
+  return jwt.sign({ id: this._id, name: this.name, email: this.email }, process.env.JWT_SECRET, {
+    expiresIn: process.env.JWT_EXPIRE,
+  });
 };
 
 const Register = mongoose.model("Register", RegisterSchema);

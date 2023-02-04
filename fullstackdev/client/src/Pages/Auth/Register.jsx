@@ -10,6 +10,7 @@ const Register = () => {
 
   const registerT = async (e) => {
     e.preventDefault();
+
     const response = await fetch("http://localhost:5000/api/auth/register", {
       method: "POST",
       headers: {
@@ -17,8 +18,23 @@ const Register = () => {
       },
       body: JSON.stringify({ name, email, password }),
     });
-
-    const data = await response.json();
+    console.log(response);
+    //Check empty fields
+    if (response.status === 400 && !name) {
+      setErrMsg("Please enter your name");
+    }
+    if (response.status === 400 && !email) {
+      setErrMsg("Please enter your email");
+    }
+    if (response.status === 400 && !password) {
+      setErrMsg("Please enter your password");
+    } else if (response.status === 401) {
+      setErrMsg("Email-ul este deja folosit");
+    } else if (response.status === 201) {
+      const data = await response.json();
+      setErrMsg("Te-ai inregistrat cu succes");
+      console.log(data);
+    }
   };
 
   return (

@@ -21,6 +21,7 @@ const Login = (props) => {
       } else {
         const data = await response.json();
         setUsersList(data.data);
+
         setTotalUsers(data.totalUsers);
       }
     };
@@ -43,8 +44,9 @@ const Login = (props) => {
       setErrMsg("Datele sunt invalide");
     } else if (response.status === 200) {
       const data = await response.json();
-      setErrMsg("Te-ai logat cu succes");
+      setErrMsg("Te-ai logat cu success");
       console.log(data);
+
       setIsLogged(true);
     }
   };

@@ -11,8 +11,8 @@ const App = () => {
       <a href="/home">Go To Home Page</a>
       {/* <UserAuthProvider> */}
       <Routes>
-        <Route exact path="/user/login" element={<Login />}></Route>
-        <Route exact path="/user/register" element={<Register />}></Route>
+        <Route exact path="/user/auth/login" element={<Login />}></Route>
+        <Route exact path="/user/auth/register" element={<Register />}></Route>
 
         <Route exact path="/about" element={<About />}></Route>
         <Route exact path="/" element={<Home />}></Route>
